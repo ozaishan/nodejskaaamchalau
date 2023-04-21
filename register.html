@@ -18,7 +18,8 @@
 	</nav>
 	<div class="container">
 		<div class="login-content">
-			<form action="" method="POST">
+			<form action="" method="POST" onsubmit="return validateForm()">
+
 				<h2 class="title">Register</h2>
 				<div class="input-div one">
 					<div class="i">
@@ -75,6 +76,16 @@
 						<input type="number" name="phoneNumber" class="input" required>
 					</div>
 				</div>
+				<div class="input-div seven">
+					<div class="i">
+					  <i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+					  <h5>Password</h5>
+					  <input type="password" name="password" class="input" required>
+					</div>
+				  </div>
+				  
 			
 				<input type="submit" class="btn" value="Register">
 			</form>
@@ -82,45 +93,52 @@
 	</div>
 
 	<script type="text/javascript" src="assets/register.js"></script>
-	<!-- <script>
+	<script>
 		function validateForm() {
-			var firstName = document.getElementById("firstName").value;
-			var middleName = document.getElementById("middleName").value;
-			var lastName = document.getElementById("lastName").value;
-			var nationalId = document.getElementById("nationalId").value;
-			var email = document.getElementById("email").value;
-			var phoneNumber = document.getElementById("phoneNumber").value;
-		var nameRegex = /^[A-Za-z\s]+$/;
-		var nationalIdRegex = /^[0-9]{10}$/; 
-		var emailRegex = /^\S+@\S+\.\S+$/; 
-		var phoneNumberRegex = /^[0-9]{10}$/; 
-		if (!firstName.match(nameRegex)) {
+		  var firstName = document.getElementsByName("firstName")[0].value;
+		  var middleName = document.getElementsByName("middleName")[0].value;
+		  var lastName = document.getElementsByName("lastName")[0].value;
+		  var nationalId = document.getElementsByName("nationalId")[0].value;
+		  var email = document.getElementsByName("email")[0].value;
+		  var phoneNumber = document.getElementsByName("phoneNumber")[0].value;
+		  var password = document.getElementsByName("password")[0].value;
+		  var nameRegex = /^[A-Za-z\s]+$/;
+		  var nationalIdRegex = /^[0-9]{10}$/;
+		  var emailRegex = /^\S+@\S+\.\S+$/;
+		  var phoneNumberRegex = /^[0-9]{10}$/;
+		  var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+		  if (!firstName.match(nameRegex)) {
 			alert("Please enter a valid First Name");
 			return false;
-		}
-		if (middleName !== "" && !middleName.match(nameRegex)) {
+		  }
+		  if (middleName !== "" && !middleName.match(nameRegex)) {
 			alert("Please enter a valid Middle Name");
 			return false;
-		}
-		if (!lastName.match(nameRegex)) {
+		  }
+		  if (!lastName.match(nameRegex)) {
 			alert("Please enter a valid Last Name");
 			return false;
-		}
-		if (!nationalId.match(nationalIdRegex)) {
+		  }
+		  if (!nationalId.match(nationalIdRegex)) {
 			alert("Please enter a valid National ID");
 			return false;
-		}
-		if (!email.match(emailRegex)) {
+		  }
+		  if (!email.match(emailRegex)) {
 			alert("Please enter a valid Email");
 			return false;
-		}
-		if (!phoneNumber.match(phoneNumberRegex)) {
+		  }
+		  if (!phoneNumber.match(phoneNumberRegex)) {
 			alert("Please enter a valid Phone Number");
 			return false;
+		  }
+		  if (!password.match(passwordRegex)) {
+			alert("Please enter a password with at least 8 characters, one uppercase letter, one lowercase letter, and one number");
+			return false;
+		  }
+		  alert("Form submitted successfully!");
+		  return true;
 		}
-		alert("Form submitted successfully!");
-		return true;
-	}
-</script> -->
+	  </script>
+	  
 </body>
 </html>
